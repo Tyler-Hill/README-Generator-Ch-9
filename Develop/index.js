@@ -3,7 +3,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 
 // TODO: Create an array of questions for user input
-const questions = inquirer.prompt([
+const questions = [
   {
     type: "input",
     name: "projectTitle",
@@ -55,7 +55,7 @@ const questions = inquirer.prompt([
     name: "githubUsername",
     message: "Enter your GitHub username:",
   },
-]);
+];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
