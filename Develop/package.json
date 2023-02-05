@@ -1,14 +1,23 @@
 {
-  "name": "static-site",
+  "name": "readme-generator-ch-9",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tyler-Hill/README-Generator-Ch-9.git"
+  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "inquirer": "8.2.4"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/Tyler-Hill/README-Generator-Ch-9/issues"
+  },
+  "homepage": "https://github.com/Tyler-Hill/README-Generator-Ch-9#readme"
 }
