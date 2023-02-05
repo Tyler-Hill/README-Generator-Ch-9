@@ -59,15 +59,15 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-  return fs.writeFileSync(fileName, JSON.stringify(data));
+  return fs.writeFileSync(fileName, data);
 }
 function init() {
   inquirer.prompt(questions).then((response) => {
     const readme = `
-# ${questions.title}
+## ${response.title}
 
 ## Description
-${questions.description}
+${response.description}
 
 ## Table of Contents
 - [Description](#description)
@@ -76,25 +76,25 @@ ${questions.description}
 - [License](#license)
 - [Contributing](#contributing)
 - [Tests](#tests)
-- [Questions](#questions)
+- [Questions](#Questions)
 
 ## Installation
-${questions.installation}
+${response.installation}
 
 ## Usage
-${questions.usage}
+${response.usage}
 
 ## License
-This project is licensed under the ${questions.license}.
+This project is licensed under the ${response.license}.
 
 ## Contributing
-${questions.contributing}
+${response.contributing}
 
 ## Tests
-${questions.tests}
+${response.tests}
 
-## Questionss
-If you have any questionss, feel free to reach out to me on GitHub at [${questions.githubUsername}](https://github.com/${questions.githubUsername}).
+## responses
+If you have any responses, feel free to reach out to me on GitHub at [${response.githubUsername}](https://github.com/${questions.githubUsername}).
 `;
     // TODO: Create a function to initialize app
     console.log(readme);
