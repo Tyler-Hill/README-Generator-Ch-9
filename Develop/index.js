@@ -2,7 +2,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 
-// TODO: Create an array of questions for user input
+// TODO: Create an array of questionss for user input
 const questions = [
   {
     type: "input",
@@ -59,11 +59,15 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-  const readme = `
-# ${data.title}
+  return fs.writeFileSync(fileName, JSON.stringify(data));
+}
+function init() {
+  inquirer.prompt(questions).then((response) => {
+    const readme = `
+# ${questions.title}
 
 ## Description
-${data.description}
+${questions.description}
 
 ## Table of Contents
 - [Description](#description)
@@ -75,29 +79,27 @@ ${data.description}
 - [Questions](#questions)
 
 ## Installation
-${data.installation}
+${questions.installation}
 
 ## Usage
-${data.usage}
+${questions.usage}
 
 ## License
-This project is licensed under the ${data.license}.
+This project is licensed under the ${questions.license}.
 
 ## Contributing
-${data.contributing}
+${questions.contributing}
 
 ## Tests
-${data.tests}
+${questions.tests}
 
-## Questions
-If you have any questions, feel free to reach out to me on GitHub at [${data.githubUsername}](https://github.com/${data.githubUsername}).
+## Questionss
+If you have any questionss, feel free to reach out to me on GitHub at [${questions.githubUsername}](https://github.com/${questions.githubUsername}).
 `;
-  fs.writeFile("README.md", readme);
-}
-
-// TODO: Create a function to initialize app
-function init() {
-  writeToFile();
+    // TODO: Create a function to initialize app
+    console.log(readme);
+    writeToFile("README.md", readme);
+  });
 }
 
 // Function call to initialize app
