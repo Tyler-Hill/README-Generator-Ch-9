@@ -1,8 +1,9 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
+const fs = require("fs");
 
 // TODO: Create an array of questions for user input
-const questions = [
+const questions = inquirer.prompt([
   {
     type: "input",
     name: "projectTitle",
@@ -54,13 +55,49 @@ const questions = [
     name: "githubUsername",
     message: "Enter your GitHub username:",
   },
-];
+]);
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data)
+function writeToFile(fileName, data) {
+  const readme = `
+# ${data.title}
+
+## Description
+${data.description}
+
+## Table of Contents
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
+
+## Installation
+${data.installation}
+
+## Usage
+${data.usage}
+
+## License
+This project is licensed under the ${data.license}.
+
+## Contributing
+${data.contributing}
+
+## Tests
+${data.tests}
+
+## Questions
+If you have any questions, feel free to reach out to me on GitHub at [${data.githubUsername}](https://github.com/${data.githubUsername}).
+`;
+  fs.writeFile("README.md", readme);
+}
 
 // TODO: Create a function to initialize app
 function init() {
+  writeToFile();
 }
 
 // Function call to initialize app
